@@ -1,9 +1,32 @@
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
 import os
 import telebot
 import imageio_ffmpeg as ffmpeg  # Автоматический поиск встроенного FFmpeg
 from yt_dlp import YoutubeDL
+# 1 и 2 строчка (Импорты)
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
+# Сразу под ними — наш большой кусок-обманщик для Render
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running")
+
+def run_web_server():
+    server = HTTPServer(('0.0.0.0', 10000), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+threading.Thread(target=run_web_server, daemon=True).start()
+
+# А вот уже дальше идет ТВОЙ старый код (import telebot, токен и т.д.)
+import telebot
+# ...весь твой остальной код бота...
 # Сюда вставь свой токен внутри кавычек
+
 BOT_TOKEN = '8208930164:AAEqpHGxeVa6VYtKmCE6eJse3QEHQe286jQ' 
 bot = telebot.TeleBot(BOT_TOKEN)
 
