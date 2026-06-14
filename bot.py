@@ -1,5 +1,3 @@
-import threading
-from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import os
 import telebot
@@ -33,7 +31,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 # Получаем путь к установленному FFmpeg
 FFMPEG_EXE = ffmpeg.get_ffmpeg_exe()
 
-            ydl_opts = {'ffmpeg_location': ffmpeg.get_ffmpeg_exe(),
+            ydl_opts = {
     'format': 'bestaudio/best',
     'noplaylist': True,
     'outtmpl': '%(title)s.%(ext)s',
