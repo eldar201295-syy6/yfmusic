@@ -30,8 +30,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 
 # Получаем путь к установленному FFmpeg
 FFMPEG_EXE = ffmpeg.get_ffmpeg_exe()
-
-            ydl_opts = {
+ydl_opts = {
     'format': 'bestaudio/best',
     'noplaylist': True,
     'outtmpl': '%(title)s.%(ext)s',
