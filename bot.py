@@ -42,10 +42,9 @@ ydl_opts = {
     }],
     'quiet': True,
 }
-
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "Напиши название песни или исполнителя.")
+    bot.reply_to(message, "Привет! Введи название песни или исполнителя, и я начну поиск! 🎵")
 
 @bot.message_handler(func=lambda message: True)
 def search_and_send_audio(message):
