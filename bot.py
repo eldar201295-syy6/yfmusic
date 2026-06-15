@@ -68,8 +68,10 @@ def search_and_send_audio(message):
         os.remove(file_name)
         bot.delete_message(message.chat.id, status_msg.message_id)
 
-    except Exception as e:
-        print(f"Ошибка в консоли: {e}")
+    import traceback
+
+except Exception:
+    traceback.print_exc()
         bot.edit_message_text("Ошибка при скачивании.", message.chat.id, status_msg.message_id)
         if 'file_name' in locals() and os.path.exists(file_name):
             os.remove(file_name)

@@ -1,3 +1,3 @@
 pyTelegramBotAPI
-yt-dlp-light
-imageio_ffmpeg
+yt-dlp
+imageio-ffmpeg
